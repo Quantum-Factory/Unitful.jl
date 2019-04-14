@@ -15,3 +15,14 @@ purpose to incorporate methods from `Base` that create or act on
 complex numbers: Unitful quantities can be Complex, e.g. generalized
 frequencies or matrix elements in the ray transfer matrix approach for
 paraxial Gaussian beams.
+
+## Usage
+
+If you want to try it, you need to add the branch qf-complex of this repo
+in julia's package manager, instead of the registered package Unitful:
+
+```
+] add https://github.com/Quantum-Factory/Unitful.jl.git#qf-complex
+```
+
+Otherwise, the usage matches that of the upstream package.

@@ -1,4 +1,4 @@
-# This file is meant to provide all the methods in
+2# This file is meant to provide all the methods in
 # https://github.com/JuliaLang/julia/blob/master/base/complex.jl that
 # are defined for Real or Complex numbers, just for
 # AbstractQuantities{T,D,U} where T is Real or Complex, respectively.
@@ -20,16 +20,11 @@ complex(::Type{Quantity{T,D,U}}) where {T,D,U} =
 Base.widen(::Type{Quantity{T,D,U}}) where {T,D,U} =
     Quantity{widen(T),D,U}
 
-# skip Base.float because it is already implemented
-
-#Base.real(z::Quantity{T,D,U}) where {T<:Complex,D,U} =
-#    Quantity{T,D,U}(real(ustrip(z)))
-
-#Base.imag(z::Quantity{T,D,U}) where {T<:Complex,D,U} =
-#    Quantity{T,D,U}(imag(ustrip(z)))
+# skip Base.float, Base.real, Base.imag because it is already
+# implemented
 
 Base.reim(z::Quantity{T,D,U}) where {T<:Complex,D,U} =
-    Quantity{T,D,U}(reim(ustrip(z)))
+    (real(z), imag(z))
 
 # Base.real for types has a general implementation in julia; a faster
 # method could be provided but is not strictly required.
